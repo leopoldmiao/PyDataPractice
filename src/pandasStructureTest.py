@@ -1,5 +1,4 @@
 import numpy as np
-from numpy.lib.shape_base import column_stack
 import pandas as pd
 #pandas的基础是两个数据结构Series和DataFrame。前者是一维数据，后者是多维数据。
 
@@ -278,5 +277,20 @@ print("删除一行")
 df8 = df7.drop(index = [5]) #仅仅是视图中删除了而已。
 print(df8)
 
+print("=============13.判断DF中是否含有元素集合(以列表形式，任意组合，不限于在一行或一列上)======================")
+print(df8)
+print(df8.isin([70]))
+print(df8.isin(['green','pen']))
+print(df8.isin(['pen','pencil']))
+print(df8.isin(['pen','pencil','white']))
+print("把包含的元素选择出来，其他的置为NaN")
+print(df8[df8.isin(['pen','pencil','white'])])
 
-
+print("=============14.Series或DF转置======================")
+print(df8)
+print("转置后")
+print(df8.T)
+SeriesFinal = pd.Series(np.arange(3),index = ['a','b','c'])
+print(SeriesFinal)
+print("转置后,返回Series的转置, 但Series是一维的所以还是它本身")
+print(SeriesFinal.T)
